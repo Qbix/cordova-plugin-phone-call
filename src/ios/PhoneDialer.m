@@ -7,7 +7,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "PhoneDialer.h"
 
-BOOL monitorAudioRouteChange = NO;
+BOOL monitorAudioRouteChangeValue = NO;
 
 
 @implementation PhoneDialer
@@ -50,7 +50,7 @@ BOOL monitorAudioRouteChange = NO;
 
 - (void)handleAudioRouteChange:(NSNotification *) notification
 {
-    if(monitorAudioRouteChange) {
+    if(monitorAudioRouteChangeValue) {
         NSNumber* reasonValue = notification.userInfo[@"AVAudioSessionRouteChangeReasonKey"];
         AVAudioSessionRouteDescription* previousRouteKey = notification.userInfo[@"AVAudioSessionRouteChangePreviousRouteKey"];
         NSArray* outputs = [previousRouteKey outputs];
